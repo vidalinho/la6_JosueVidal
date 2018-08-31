@@ -29,8 +29,8 @@ public class AdministrarPelicula {
         return listaPeliculas;
     }
 
-    public void setListaPersonas(ArrayList<Pelicula> listaPersonas) {
-        this.listaPeliculas = listaPersonas;
+    public void setListaPeliculas(ArrayList<Pelicula> listaPeliculas) {
+        this.listaPeliculas = listaPeliculas;
     }
 
     public File getArchivo() {
@@ -46,7 +46,7 @@ public class AdministrarPelicula {
         return "AdministrarPelicula{" + "listaPeliculas=" + listaPeliculas + ", archivo=" + archivo + '}';
     }
 
-    public void setPersona(Pelicula p) {
+    public void setPelicula(Pelicula p) {
         this.listaPeliculas.add(p);
     }
 

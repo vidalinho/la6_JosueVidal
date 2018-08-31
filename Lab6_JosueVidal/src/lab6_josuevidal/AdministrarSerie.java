@@ -17,7 +17,8 @@ import java.util.Scanner;
  * @author josue
  */
 public class AdministrarSerie {
-   private ArrayList<Serie> listaSeries = new ArrayList();
+
+    private ArrayList<Serie> listaSeries = new ArrayList();
     private File archivo = null;
 
     public AdministrarSerie(String path) {
@@ -44,7 +45,8 @@ public class AdministrarSerie {
     public String toString() {
         return "AdministrarSerie{" + "listaSeries=" + listaSeries + ", archivo=" + archivo + '}';
     }
-void setPersona(Serie p) {
+
+    void setPersona(Serie p) {
         this.listaSeries.add(p);
     }
 
@@ -55,12 +57,16 @@ void setPersona(Serie p) {
             fw = new FileWriter(archivo, false);
             bw = new BufferedWriter(fw);
             for (Serie t : listaSeries) {
-                bw.write(t.getCodigo() + ";");
-                bw.write(t.getNombre()+ ";");
-                bw.write(t.getEdad()+ ";");
-                for (int i = 0; i < t.getHobbies().size(); i++) {
-                    bw.write(t.getHobbies().get(i)+",");
-                }
+                bw.write(t.getNombre() + ",");
+                bw.write(t.getDuracion() + ",");
+                bw.write(t.getCategoria() + ",");
+                bw.write(t.getActores() + ",");
+                bw.write(t.getTemporadas() + ",");
+                bw.write(t.getProductora() + ",");
+                bw.write(t.getIdioma() + ",");
+                bw.write(t.getDoblaje() + ",");
+                bw.write(t.getSubtitulos() + ";");
+
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -71,18 +77,23 @@ void setPersona(Serie p) {
 
     public void cargarArchivo() {
         Scanner sc = null;
+        Scanner sc2 = null;
         listaSeries = new ArrayList();
         if (archivo.exists()) {
             try {
                 sc = new Scanner(archivo);
-                sc.useDelimiter(";");
+
+                sc.useDelimiter(",");
+                sc2.useDelimiter(";");
                 while (sc.hasNext()) {
-                    listaSeries.add(new Serie(sc.nextInt(), sc.next(), sc.nextInt()));
+                    listaSeries.add(new Serie(sc.next(), sc.nextInt(), sc.next(), sc.next(), sc.nextInt(), sc.next(), sc.next(), sc.next(), sc.next()));
+                    sc2.next();
+
                 }
             } catch (Exception e) {
             } finally {
                 sc.close();
             }
         }
-    } 
+    }
 }
