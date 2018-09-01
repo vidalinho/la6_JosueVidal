@@ -1,3 +1,0 @@
-The Simpsons,50,animacion,Brad pitt,5,Manuel Zelaya,Warner,Ingles,si,no;The big bang theory,40,comedia,Maria Juana,6,Luis Alberto,Warner,Ingles,no,no;House,70,Romance,Cristiano Ronaldo,7,Stephen curry,Dc,Ingles,si,si;Game of Thrones,55,accion,Michael Jackson,8,Manuel Zelaya,Paramount,Ingles,si,no;Friends,80,terror,Lebron James,10,Bad bunny,Marvel,Ingles,si,no;
-
-

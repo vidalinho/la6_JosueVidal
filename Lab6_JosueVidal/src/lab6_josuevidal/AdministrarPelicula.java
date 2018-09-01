@@ -25,7 +25,7 @@ public class AdministrarPelicula {
         archivo = new File(path);
     }
 
-    public ArrayList<Pelicula> getListaPersonas() {
+    public ArrayList<Pelicula> getListaPeliculas() {
         return listaPeliculas;
     }
 
@@ -65,28 +65,40 @@ public class AdministrarPelicula {
                 bw.write(t.getCompania() + ",");
                 bw.write(t.getIdioma() + ",");
                 bw.write(t.getDoblaje() + ",");
-                bw.write(t.getSubtitulos() + ";");
+                bw.write(t.getSubtitulos() + ",");
 
             }
+            bw.flush();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+        
         bw.close();
         fw.close();
     }
 
     public void cargarArchivo() {
         Scanner sc = null;
-        Scanner sc2 = null;
-        listaPeliculas = new ArrayList();
+        listaPeliculas= new ArrayList();
         if (archivo.exists()) {
             try {
                 sc = new Scanner(archivo);
-                sc2 = new Scanner(archivo);
                 sc.useDelimiter(",");
-                sc2.useDelimiter(";");
-                while (sc2.hasNext()) {
-                    listaPeliculas.add(new Pelicula(sc.next(), sc.nextInt(), sc.next(), sc.next(), sc.next(), sc.next(), sc.next(), sc.next(), sc.next()));
+                while (sc.hasNext()) {
+                    String nombre;
+                    int duracion, temp;
+                    String Categoria, productora, idioma, doblaje, subs, actor,director;
+                    nombre = sc.next();
+                    duracion = sc.nextInt();
+                    Categoria = sc.next();
+                    actor = sc.next();
+                    director = sc.next();
+                    productora = sc.next();
+                    idioma = sc.next();
+                    doblaje = sc.next();
+                    subs = sc.next();
+                    listaPeliculas.add(new Pelicula(nombre, duracion, Categoria, actor, director, productora, idioma, doblaje, subs));
+
                 }
             } catch (Exception e) {
             } finally {
@@ -94,4 +106,5 @@ public class AdministrarPelicula {
             }
         }
     }
+
 }

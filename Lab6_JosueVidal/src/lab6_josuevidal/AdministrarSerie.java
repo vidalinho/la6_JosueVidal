@@ -25,11 +25,11 @@ public class AdministrarSerie {
         archivo = new File(path);
     }
 
-    public ArrayList<Serie> getListaPersonas() {
+    public ArrayList<Serie> getListaSeries() {
         return listaSeries;
     }
 
-    public void setListaPersonas(ArrayList<Serie> listaPersonas) {
+    public void setListaSeries(ArrayList<Serie> listasSeries) {
         this.listaSeries = listaSeries;
     }
 
@@ -46,7 +46,7 @@ public class AdministrarSerie {
         return "AdministrarSerie{" + "listaSeries=" + listaSeries + ", archivo=" + archivo + '}';
     }
 
-    void setPersona(Serie p) {
+    void setSerie(Serie p) {
         this.listaSeries.add(p);
     }
 
@@ -68,6 +68,7 @@ public class AdministrarSerie {
                 bw.write(t.getSubtitulos() + ";");
 
             }
+            bw.flush();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -77,17 +78,27 @@ public class AdministrarSerie {
 
     public void cargarArchivo() {
         Scanner sc = null;
-        Scanner sc2 = null;
         listaSeries = new ArrayList();
         if (archivo.exists()) {
             try {
                 sc = new Scanner(archivo);
-
                 sc.useDelimiter(",");
-                sc2.useDelimiter(";");
                 while (sc.hasNext()) {
-                    listaSeries.add(new Serie(sc.next(), sc.nextInt(), sc.next(), sc.next(), sc.nextInt(), sc.next(), sc.next(), sc.next(), sc.next()));
-                    sc2.next();
+
+                    String nombre;
+                    int duracion, temp;
+                    String Categoria, productora, idioma, doblaje, subs, actor;
+
+                    nombre = sc.next();
+                    duracion = sc.nextInt();
+                    Categoria = sc.next();
+                    actor = sc.next();
+                    temp = sc.nextInt();
+                    productora = sc.next();
+                    idioma = sc.next();
+                    doblaje = sc.next();
+                    subs = sc.next();
+                    listaSeries.add(new Serie(nombre, duracion, Categoria, actor, temp, productora, idioma, doblaje, subs));
 
                 }
             } catch (Exception e) {

@@ -1,1 +1,0 @@
-Cars,120,animacion,Rayo Mcqeen,Jordan,Disney,Ingles,si,si;Encantados,200,fantasia,Maria Roberta,Pedro,Disney,Espanol,no,no;Annabelle,158,terror,Annabella Gonzalez,Jorge,Pepper,Ingles,no,si;American Sniper,127,accion,Chris pratt,Manuel Perez,Warner,Ingles,si,no;Alice in Wonderland,200,ciencia ficcion,Concha perez,Jordan,Paramount,Ingles,si,si;
